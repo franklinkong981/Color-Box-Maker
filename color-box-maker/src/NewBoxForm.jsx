@@ -1,6 +1,7 @@
 import React from "react";
 import {useFormik} from 'formik';
-import { blurElement } from "@testing-library/user-event/dist/cjs/event/focus.js";
+
+import "./NewBoxForm.css";
 
 const colors = [
   "aqua", "black", "blue", "brown", "chartreuse", "chocolate", "crimson", "cyan", "fuchsia", "gold", "gray", "green",
@@ -9,7 +10,7 @@ const colors = [
 ]
 
 const NewBoxForm = ({addBox}) => {
-  const formik = ({
+  const formik = useFormik({
     initialValues:{
       color: 'white',
       height: 10,
@@ -27,14 +28,21 @@ const NewBoxForm = ({addBox}) => {
         {colors.map(color => (
           <option value={color}>{color.charAt(0).toUpperCase() + color.slice(1)}</option>
         ))}
-      </select>
+      </select><br/>
+
       <label htmlFor="height-field">Height (pixels):</label>
-      <input id="height-field" className="NewBoxForm-height-field" type="range" min="10" max="500" name="height" 
+      <input id="height-field" className="NewBoxForm-height-field" type="range" min="10" max="500" name="height"
       value={formik.values.height} onChange={formik.handleChange}/>
+      <span className="NewBoxForm-height-display">{formik.values.height}</span><br/>
+
       <label htmlFor="width-field">Width (pixels): </label>
       <input id="width-field" className="NewBoxForm-width-field" type="range" min="10" max="500" name="width" 
       value={formik.values.width} onChange={formik.handleChange}/>
+      <span className="NewBoxForm-width-display">{formik.values.width}</span><br/>
+
       <button type="submit">Add box</button>
     </form>
   );
 };
+
+export default NewBoxForm;
