@@ -195,7 +195,7 @@ exports[`matches snapshot 1`] = `
     <label
       for="width-field"
     >
-      Width (pixels): 
+      Width (pixels):
     </label>
     <input
       class="NewBoxForm-width-field"

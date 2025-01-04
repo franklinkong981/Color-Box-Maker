@@ -35,7 +35,7 @@ const NewBoxForm = ({addBox}) => {
       value={formik.values.height} onChange={formik.handleChange}/>
       <span className="NewBoxForm-height-display">{formik.values.height}</span><br/>
 
-      <label htmlFor="width-field">Width (pixels): </label>
+      <label htmlFor="width-field">Width (pixels):</label>
       <input id="width-field" className="NewBoxForm-width-field" type="range" min="10" max="500" name="width" 
       value={formik.values.width} onChange={formik.handleChange}/>
       <span className="NewBoxForm-width-display">{formik.values.width}</span><br/>
