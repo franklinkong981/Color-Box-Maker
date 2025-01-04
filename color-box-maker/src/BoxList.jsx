@@ -12,12 +12,18 @@ const BoxList = () => {
     setBoxes(boxes => [...boxes, {...newBox, id: uuid()}]);
   };
 
+  const removeBox = (boxId) => {
+    setBoxes(boxes => {
+      return boxes.filter((box) => box.id !== boxId);
+    });
+  };
+
   return (
     <div className="BoxList">
       <h2 className="BoxList-title">Box List! Use form to create boxes!</h2>
       <NewBoxForm addBox={addBox}/>
       <div className="BoxList-boxes">
-        {boxes.map(box => <Box key={box.id} color={box.color} height={box.height} width={box.width}/>)}
+        {boxes.map(box => <Box key={box.id} color={box.color} height={box.height} width={box.width} removeBox={removeBox}/>)}
       </div>
     </div>
   );
