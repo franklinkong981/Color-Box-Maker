@@ -6,9 +6,9 @@ const Box = ({id, color, height, width, removeBox}) => {
   };
 
   return (
-    <div className="Box">
+    <div className="Box" id={id}>
       <div className="Box-display" style={{backgroundColor: color, width: width, height: height}}></div>
-      <button className="Box-remove-button" onClick={removeBox}>DELETE BOX</button>
+      <button className="Box-remove-button" onClick={handleRemove}>DELETE BOX</button>
     </div>
   );
 };

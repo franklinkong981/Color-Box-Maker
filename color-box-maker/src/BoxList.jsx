@@ -8,10 +8,12 @@ const BoxList = () => {
   //boxes will be an array of box objects, each box object will have 4 attributes: id, color, height, and width.
   const [boxes, setBoxes] = useState([]);
 
+  //newBox will be an object with a color, height, and width attribute.
   const addBox = (newBox) => {
     setBoxes(boxes => [...boxes, {...newBox, id: uuid()}]);
   };
 
+  //removes the box object from boxes whose id attribute matches boxId.
   const removeBox = (boxId) => {
     setBoxes(boxes => {
       return boxes.filter((box) => box.id !== boxId);
